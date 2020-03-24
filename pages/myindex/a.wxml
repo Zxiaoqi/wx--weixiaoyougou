@@ -1,0 +1,4 @@
+<template name="a">
+  <text> A template </text>
+</template>
+<view>footer</view>

@@ -1,0 +1,5 @@
+<import src="a.wxml"/>
+<template name="item">
+  <template is="a"></template>
+  <text>{{text}}</text>
+</template>

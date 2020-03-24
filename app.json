@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sort/sort",
+    "pages/myindex/myindex",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor":"#0051ff"
+  },
+  "tabBar": {
+    "color":"#ccc",
+    "selectedColor": "#2fa3ff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "selectedIconPath":"icons/home.png",
+      "iconPath":"icons/home-o.png"
+    }, {
+      "pagePath": "pages/sort/sort",
+      "text": "分类",
+      "selectedIconPath":"icons/fenlei.png",
+      "iconPath":"icons/fenlei-o.png"
+    },{
+      "pagePath":"pages/cart/cart",
+      "text":"购物车",
+      "selectedIconPath":"icons/cart.png",
+      "iconPath":"icons/cart-o.png"
+  },{
+      "pagePath":"pages/myindex/myindex",
+      "text":"我的",
+      "selectedIconPath":"icons/wode.png",
+      "iconPath":"icons/wode-o.png"
+  }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

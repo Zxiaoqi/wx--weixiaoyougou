@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search-view">
+    <input class="search-input" placeholder="搜索"/>
+  </view>
+  <view class="pics">
+    <swiper indicator-dots class="swiper-pic"
+    indicator-active-color="rgba(0, 81, 255, .7)"
+    autoplay circular interval="{{10000}}"
+    easing-function="easeInOutCubic">
+      <swiper-item>
+        <image src="../../assets/banner1.jpg" mode="aspectFill"
+        class="pic"/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../assets/banner1.jpg" mode="aspectFill"
+        class="pic"/>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="tabs">
+      <view class="tab-bar">
+        <image src="../../icons/cart.png" mode class="tab-icon"/>
+        <view class="tab-title">图标</view>
+      </view>
+      <view class="tab-bar">
+        <image src="../../icons/cart-o.png" class="tab-icon"></image>
+        <view class="tab-title">图标</view>
+      </view>
+      <view class="tab-bar">
+        <image src="../../icons/cart-o.png" class="tab-icon"></image>
+        <view class="tab-title">图标</view>
+      </view>
+      <view class="tab-bar">
+        <image src="../../icons/cart-o.png"  class="tab-icon"></image>
+        <view class="tab-title">图标</view>
+      </view>
+  </view>
+  <!-- <navigator url="/pages/logs/logs" open-type="navigate">tologs</navigator> -->
+  <view class="shop-card">
+    <view class="shop-title">时尚女装</view>
+    <view>
+      <image src="/icons/fenlei.png"></image>
+    </view>
+  </view>
+</view>
+

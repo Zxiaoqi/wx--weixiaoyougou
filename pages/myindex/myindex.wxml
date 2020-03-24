@@ -1,0 +1,28 @@
+<!--pages/myindex/myindex.wxml-->
+<text>pages/myindex/myindex.wxml</text>
+<view> {{message}} </view>
+<view data-id="{{id}}">自定义属性渲染</view>
+<view id="item-{{id}}"> </view>
+<checkbox checked="{{true}}"></checkbox>
+<view> {{a + b}} + {{c}} + d </view>
+<!-- <template data="{{for: a, bar: b}}"></template> -->
+<view wx:for="{{array}}" wx:key="item">
+  {{index}}: {{item.message}}
+</view>
+<block wx:for="{{[1, 1, 2, 3]}}" wx:key="item">
+  <view> {{index}}: {{item}}</view>
+</block>
+<!-- 事件 -->
+<view id="tapTest" data-hi="WeChat" data-setdata="{{array}}" bindtap="clickMe">点击</view>
+<view hidden="{{ishidden}}"> view1 </view>
+<!-- 模板 -->
+<template name="odd">
+  <view> odd </view>
+</template>
+<template name="even">
+  <view> even </view>
+</template>
+<!-- 引用 -->
+<import src="item.wxml"/>
+<template is="item" data="{{text:'引用'}}"></template>
+<include src="a.wxml"/>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#0051ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "微小优购",
+  "backgroundColor":"#eee",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh":true
+}
