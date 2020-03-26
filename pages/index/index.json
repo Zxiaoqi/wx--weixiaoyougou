@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "cpmindex":"/components/component/cpmindex",
-    "selectable-group": "/components/selectable/selectable-group"
+    "search":"/components/search/search"
   },
   "navigationBarBackgroundColor": "#0051ff",
   "navigationBarTextStyle": "white",

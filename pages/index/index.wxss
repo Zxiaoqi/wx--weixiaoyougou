@@ -1,3 +1,70 @@
-.icon-fenlei_:before {
-  color: red;
+/**index.wxss**/
+.search {
+  width: 100%;
+  background-color: #0051ff;
+}
+.pics .swiper-pic {
+  width: 750rpx;
+  height: 340rpx;
+}
+.pics .swiper-pic .swiper-navigetor {
+  height: 100%;
+  width: 100%;
+}
+.pics .swiper-pic .swiper-navigetor .pic {
+  height: 100%;
+  width: 100%;
+}
+.tabs {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 12rpx 31rpx;
+}
+.tabs .tab-bar {
+  width: 126rpx;
+  text-align: center;
+}
+.tabs .tab-bar .tab-icon {
+  width: 100%;
+  height: 140rpx;
+}
+.shop-card {
+  width: 100%;
+  padding: 20rpx 0;
+}
+.shop-card .shop-title {
+  font-size: 16px;
+  text-align: left;
+  padding: 0 12rpx;
+  color: #058eff;
+}
+.shop-card .shop-item {
+  display: flex;
+  padding: 0 12rpx;
+}
+.shop-card .shop-item .item-left {
+  width: calc(33.33333333%);
+  background-color: red;
+  height: 462rpx;
+}
+.shop-card .shop-item .item-right {
+  width: calc(66.66666667%);
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15rpx;
+}
+.shop-card .shop-item .item-right .right-img {
+  width: 48%;
+  height: 229rpx;
+  background-color: red;
+}
+.shop-card .shop-item .item-right .right-img:nth-of-type(1) {
+  margin: 0 15rpx 10rpx 0;
+}
+.shop-card .shop-item .item-right .right-img:nth-of-type(4) {
+  margin: 0 0 0 15rpx;
+}
+.shop-card .shop-item .item-img {
+  width: 100%;
 }

@@ -1,0 +1,4 @@
+<!--pages/search/search.wxml-->
+<navigator class="search-view" url="/pages/search/search" open-type="navigate">
+    <input class="search-input" placeholder="搜索" />
+</navigator>

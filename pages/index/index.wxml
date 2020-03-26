@@ -1,42 +1,28 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="search-view">
-    <input class="search-input" placeholder="搜索"/>
+  <view class="search">
+    <search></search>
   </view>
   <view class="pics">
     <swiper indicator-dots class="swiper-pic"
     indicator-active-color="rgba(0, 81, 255, .7)"
-    autoplay circular interval="{{10000}}"
+    autoplay circular interval="{{8000}}"
     easing-function="easeInOutCubic">
-      <swiper-item>
-        <image src="../../assets/banner1.jpg" mode="aspectFill"
-        class="pic"/>
-      </swiper-item>
-      <swiper-item>
-        <image src="../../assets/banner1.jpg" mode="aspectFill"
-        class="pic"/>
+      <swiper-item wx:for="{{swiperlist}}" wx:key="goods_id">
+        <navigator url="{{item.navigator_url}}" open-type="{{item.open_type}}"
+        class="swiper-navigetor">
+          <image src="{{item.image_src}}" mode="aspectFill"
+          class="pic"/>
+        </navigator>
       </swiper-item>
     </swiper>
   </view>
   <view class="tabs">
-      <view class="tab-bar">
-        <image src="../../icons/cart.png" mode class="tab-icon"/>
-        <view class="tab-title">图标</view>
-      </view>
-      <view class="tab-bar">
-        <image src="../../icons/cart-o.png" class="tab-icon"></image>
-        <view class="tab-title">图标</view>
-      </view>
-      <view class="tab-bar">
-        <image src="../../icons/cart-o.png" class="tab-icon"></image>
-        <view class="tab-title">图标</view>
-      </view>
-      <view class="tab-bar">
-        <image src="../../icons/cart-o.png"  class="tab-icon"></image>
-        <view class="tab-title">图标</view>
-      </view>
+      <navigator class="tab-bar" wx:for="{{catitemslist}}" wx:key="name"
+      url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+        <image src="{{item.image_src}}" mode class="tab-icon"/>
+      </navigator>
   </view>
-  <!-- <navigator url="/pages/logs/logs" open-type="navigate">tologs</navigator> -->
   <view class="shop-card">
     <view class="shop-title">时尚女装</view>
     <view class="shop-item" id="container">
@@ -64,10 +50,5 @@
       </view>
     </view>
   </view>
-  <!-- <cpmindex innerText="some value" prop-a="{{motto}}"
-  bindmyevent="handlemyevent" timestamp="sdasd">
-  </cpmindex> -->
-  <selectable-group generic:selectable="custom-checkbox" />
-  <text class="iconfont icon-fenlei_">asdsa</text>
 </view>
 
