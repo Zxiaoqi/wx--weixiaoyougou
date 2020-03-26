@@ -39,9 +39,35 @@
   <!-- <navigator url="/pages/logs/logs" open-type="navigate">tologs</navigator> -->
   <view class="shop-card">
     <view class="shop-title">时尚女装</view>
-    <view>
-      <image src="/icons/fenlei.png"></image>
+    <view class="shop-item" id="container">
+      <view class="item-left">
+        <image src="/icons/fenlei.png" mode="left"
+        class="item-img"></image>
+      </view>
+      <view class="item-right">
+        <view class="right-img">
+          <image src="/icons/fenlei.png" mode="widthFix"
+          class="item-img"></image>
+        </view>
+        <view class="right-img">
+          <image src="/icons/fenlei.png" mode="widthFix"
+          class="item-img"></image>
+        </view>
+        <view class="right-img">
+          <image src="/icons/fenlei.png" mode="widthFix"
+          class="item-img"></image>
+        </view>
+        <view class="right-img">
+          <image src="/icons/fenlei.png" mode="widthFix"
+          class="item-img"></image>
+        </view>
+      </view>
     </view>
   </view>
+  <!-- <cpmindex innerText="some value" prop-a="{{motto}}"
+  bindmyevent="handlemyevent" timestamp="sdasd">
+  </cpmindex> -->
+  <selectable-group generic:selectable="custom-checkbox" />
+  <text class="iconfont icon-fenlei_">asdsa</text>
 </view>
 

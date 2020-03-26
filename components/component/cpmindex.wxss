@@ -1,0 +1,4 @@
+/* component/cpmindex.wxss */
+.inner {
+  color: red;
+}

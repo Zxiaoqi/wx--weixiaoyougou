@@ -1,9 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/sort/sort",
     "pages/myindex/myindex",
-    "pages/cart/cart"
+    "pages/category/category",
+    "pages/goods_list/goods_list",
+    "pages/goods_detail/goods_detail",
+    "pages/cart/cart",
+    "pages/collect/collect",
+    "pages/order/order",
+    "pages/search/search",
+    "pages/user/user",
+    "pages/feedback/feedback",
+    "pages/login/login",
+    "pages/auth/auth",
+    "pages/pay/pay"
+    
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -18,7 +29,7 @@
       "selectedIconPath":"icons/home.png",
       "iconPath":"icons/home-o.png"
     }, {
-      "pagePath": "pages/sort/sort",
+      "pagePath": "pages/category/category",
       "text": "分类",
       "selectedIconPath":"icons/fenlei.png",
       "iconPath":"icons/fenlei-o.png"
@@ -41,3 +52,16 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

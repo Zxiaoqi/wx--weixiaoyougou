@@ -1,0 +1,7 @@
+<!--components/selectable-group.wxml-->
+<text>components/selectable-group.wxml</text>
+<view>
+  <label>
+    <selectable disabled="{{true}}"></selectable>
+  </label>
+</view>

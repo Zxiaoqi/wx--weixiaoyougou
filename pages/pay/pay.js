@@ -1,4 +1,4 @@
-// pages/sort/sort.js
+// pages/pay/pay.js
 Page({
 
   /**
