@@ -23,30 +23,22 @@
         <image src="{{item.image_src}}" mode class="tab-icon"/>
       </navigator>
   </view>
-  <view class="shop-card">
-    <view class="shop-title">时尚女装</view>
+  <view class="shop-card" wx:for="{{productlist}}" wx:key="*this">
+    <view class="shop-title">
+      <image src="{{item.floor_title.image_src}}" mode="widthFix" />
+    </view>
     <view class="shop-item" id="container">
-      <view class="item-left">
-        <image src="/icons/fenlei.png" mode="left"
-        class="item-img"></image>
-      </view>
+      <navigator class="item-left" url="{{item.productleft.navigator_url}}"
+      open-type="{{item.productleft.open_type}}">
+        <image src="{{item.productleft.image_src}}" mode="aspectFill"
+        class="item-img"/>
+      </navigator>
       <view class="item-right">
-        <view class="right-img">
-          <image src="/icons/fenlei.png" mode="widthFix"
-          class="item-img"></image>
-        </view>
-        <view class="right-img">
-          <image src="/icons/fenlei.png" mode="widthFix"
-          class="item-img"></image>
-        </view>
-        <view class="right-img">
-          <image src="/icons/fenlei.png" mode="widthFix"
-          class="item-img"></image>
-        </view>
-        <view class="right-img">
-          <image src="/icons/fenlei.png" mode="widthFix"
-          class="item-img"></image>
-        </view>
+        <navigator class="right-img" wx:for="{{item.product_list}}" wx:key="name"
+        url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+          <image src="{{item.image_src}}" mode="aspectFill"
+          class="item-img"/>
+        </navigator>
       </view>
     </view>
   </view>

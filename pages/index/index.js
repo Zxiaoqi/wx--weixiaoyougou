@@ -4,7 +4,8 @@ const app = getApp()
 Page({
 	data: {
 		swiperlist: [],
-		catitemslist:[]
+		catitemslist: [],
+		productlist: [],
 	},
 	onLoad() {
 		// this.animate('#container', [
@@ -18,10 +19,11 @@ Page({
 		// }.bind(this))
 		app.axios({
 				url: "/home/swiperdata"
-			}).then(res => {
+			})
+			.then(res => {
 				// console.log(res);
 				const { message, meta } = res;
-				if (meta.status === 200) {
+        if (meta.status === 200) {
 					this.setData({
 						swiperlist: message
 					});
@@ -33,17 +35,35 @@ Page({
 		// 	success:(res)=>{
 		//     console.log(this);
 		// 	}
-    // });
-    app.axios({
+		// });
+		app.axios({
 				url: "/home/catitems"
 			})
 			.then(res => {
-        console.log(res);
-        const { message, meta } = res
-        if (meta.status === 200) { 
-          this.setData({
-            catitemslist:message
-          })
+				// console.log(res);
+				const { message, meta } = res;
+        if (meta.status === 200) {
+					this.setData({
+						catitemslist: message
+					});
+				}
+		});
+
+		app.axios({
+				url: "/home/floordata"
+			})
+			.then(res => {
+				console.log(res);
+				const { message, meta } = res;
+        if (meta.status === 200) {
+          let data = message.map(item => {
+            item.productleft = item.product_list.shift();
+            return item
+          });
+          // console.log(data);
+					this.setData({
+						productlist: data
+					});
         }
 		});
 	}
