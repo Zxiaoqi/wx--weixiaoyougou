@@ -52,7 +52,7 @@
   padding-left: 15rpx;
 }
 .shop-card .shop-item .item-right .right-img {
-  width: 48.5%;
+  width: 232rpx;
   height: 188rpx;
 }
 .shop-card .shop-item .item-right .right-img:nth-of-type(1) {
