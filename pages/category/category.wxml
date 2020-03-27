@@ -2,15 +2,32 @@
 <view class="category">
     <search></search>
 </view>
-<view class="page-section-spacing">
-    <scroll-view scroll-y="true" style="height: 300rpx;"
-    bindscroll="scroll"
-    scroll-into-view="{{toView}}">
-        <view id="demo1" class="scroll-view-item demo-text-1"
-        style="background-color:green;">1</view>
-        <view id="demo2" class="scroll-view-item demo-text-2"
-        style="background-color:red;">2</view>
-        <view id="demo3" class="scroll-view-item demo-text-3"
-        style="background-color:blue;">3</view>
+<view class="main">
+    <scroll-view class="scroll-left"  scroll-y="true">
+        <view class="title-left {{activeIndex === index ? 'active':''}}"
+        wx:for="{{categorylist}}" wx:key="cat_name" data-index="{{index}}"
+        bindtap="changeIndex">
+            {{item.cat_name}}
+        </view>
+    </scroll-view>
+    <scroll-view scroll-y="true"  class="scroll-right"
+    scroll-top="{{scrolltop}}">
+        <block wx:for="{{cateChild}}" wx:key="cat_name"
+        wx:if="{{item.children}}">
+            <view class="right-title">
+                {{item.cat_name}}
+            </view>
+            <view class="right-item">
+                <navigator
+                class="right-item-box"
+                wx:for="{{item.children}}" wx:key="cat_name"
+                open-type="navigate"
+                url="/pages/goods_list/goods_list?query={{item.cat_name}}&cid={{item.cat_id}}"
+                >
+                    <image class="item-img" mode="" src="{{item.cat_icon}}" />
+                    <text class="item-name">{{item.cat_name}}</text>
+                </navigator>
+            </view>
+        </block>
     </scroll-view>
 </view>

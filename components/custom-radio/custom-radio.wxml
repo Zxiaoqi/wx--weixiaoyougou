@@ -1,6 +1,0 @@
-<!--components/custom-radio/custom-radio.wxml-->
-<radio-group>
-     <radio class="radio" wx:for="{{[1,2,3,4,5]}}" wx:key="*this" value="{{item}}">
-          <text>{{item}}</text>
-     </radio>
-</radio-group>

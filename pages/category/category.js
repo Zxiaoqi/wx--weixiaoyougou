@@ -1,44 +1,54 @@
 // pages/category/category.js
-const order = ["demo1", "demo2", "demo3"];
-
+const app = getApp();
+let cateData;
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		toView: "green",
-		scrollTop: 0
+		activeIndex: 0,
+		categorylist: [],
+		cateChild: [],
+		scrolltop:0
 	},
-	scroll(e) {
-    // console.log(e);
-		// console.log(this.data.toView);
-	},
-	scrollToTop() {
-		this.setAction({
-			scrollTop: 0
-		});
-	},
-	tap() {
-		for (let i = 0; i < order.length; ++i) {
-			if (order[i] === this.data.toView) {
-				this.setData({
-					toView: order[i + 1],
-					scrollTop: (i + 1) * 200
-				});
-				break;
-			}
-		}
-	},
-
-	tapMove() {
+	//左边导航条
+	changeIndex(e) {
+		// console.log(e.currentTarget);
+		const { index } = e.currentTarget.dataset;
 		this.setData({
-			scrollTop: this.data.scrollTop + 10
+			activeIndex: index,
+			cateChild: cateData[index].children,
+			scrolltop:0
 		});
 	},
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function(options) {},
+	// 生命周期函数--监听页面加载
+	onLoad() {
+		app
+			.axios({
+				url: "/categories"
+			})
+			.then(res => {
+				// console.log(res);
+				const { message, meta } = res;
+				cateData = message;
+				// console.log(cateData);
+
+				const categorylist = message.map(item => {
+					return {
+						cat_id: item.cat_id,
+						cat_name: item.cat_name
+					};
+				});
+				const cateChild = cateData[0].children;
+				// console.log(cateChild);
+				if (meta.status === 200) {
+					this.setData({
+						categorylist,
+						cateChild
+					});
+				}
+			});
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -59,17 +69,6 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function() {},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function() {},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function() {},
-
 	/**
 	 * 用户点击右上角分享
 	 */

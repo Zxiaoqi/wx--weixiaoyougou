@@ -1,0 +1,13 @@
+<!--components/tab-view/tab-view.wxml-->
+<view class="tab">
+    <block wx:for="{{tabs}}" wx:key="*this">
+        <view class="tab-name {{activeIndex === index?'active':''}}"
+        bindtap="handleChangeTab" data-index="{{index}}">
+            {{item}}
+        </view>
+    </block>
+</view>
+<view class="content-index" wx:for="{{tabs.length}}" wx:key="*this"
+ wx:if="{{activeIndex===index}}">
+ <slot>{{index}}</slot>
+</view>

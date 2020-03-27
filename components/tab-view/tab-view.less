@@ -1,0 +1,27 @@
+.tab{
+    display: flex;
+    justify-content: space-around;
+    .tab-name{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 88rpx;
+        padding: 0 20rpx;
+        color: #666;
+    }
+    .active{
+        color: #000;
+        position: relative;
+        &::after{
+            content: '';
+            width: 184rpx;
+            height: 5rpx;
+            background-color: #0051ff;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
+.content-index{
+    width: 100%;
+}
