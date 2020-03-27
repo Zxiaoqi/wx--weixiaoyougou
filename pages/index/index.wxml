@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" style="padding-top:{{topfixed}}rpx;">
   <view class="search">
     <search></search>
   </view>
@@ -19,26 +19,29 @@
   </view>
   <view class="tabs">
       <navigator class="tab-bar" wx:for="{{catitemslist}}" wx:key="name"
-      url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+      url="/pages/categorys/categorys" open-type="switchTab">
         <image src="{{item.image_src}}" mode class="tab-icon"/>
       </navigator>
   </view>
-  <view class="shop-card" wx:for="{{productlist}}" wx:key="*this">
+  <view class="shop-card" wx:for="{{productlist}}" wx:key="index">
     <view class="shop-title">
       <image src="{{item.floor_title.image_src}}" mode="widthFix" />
     </view>
     <view class="shop-item" id="container">
-      <navigator class="item-left" url="{{item.productleft.navigator_url}}"
-      open-type="{{item.productleft.open_type}}">
+      <view class="item-left" data-url="{{item.productleft.navigator_url}}"
+      data-type="{{item.productleft.open_type}}" style="width:{{item.image_width}}rpx;"
+      bindtap="goToPagelist">
         <image src="{{item.productleft.image_src}}" mode="aspectFill"
         class="item-img"/>
-      </navigator>
+      </view>
       <view class="item-right">
-        <navigator class="right-img" wx:for="{{item.product_list}}" wx:key="name"
-        url="{{item.navigator_url}}" open-type="{{item.open_type}}">
-          <image src="{{item.image_src}}" mode="aspectFill"
+        <view class="right-img" wx:for="{{item.product_list}}" wx:key="name"
+        data-url="{{item.navigator_url}}" data-type="{{item.open_type}}"
+        style="width:{{item.image_width}}rpx;"
+        bindtap="goToPagelist">
+          <image src="{{item.image_src}}" mode="aspectFit"
           class="item-img"/>
-        </navigator>
+        </view>
       </view>
     </view>
   </view>
