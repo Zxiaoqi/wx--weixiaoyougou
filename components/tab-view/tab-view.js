@@ -6,26 +6,30 @@ Component({
 	properties: {
 		tabs: {
 			type: Array,
-			value: ["综合","销量","价格"]
+			value: ["综合", "销量", "价格"]
+		},
+		tabIndex: {
+			type: Number,
+			value:0
 		}
 	},
 	/**
 	 * 组件的初始数据
 	 */
 	data: {
-		activeIndex:0
+		activeIndex: 0
 	},
 
 	/**
 	 * 组件的方法列表
 	 */
 	methods: {
-    handleChangeTab(e) {
-      // console.log(e);
-      const { index } = e.currentTarget.dataset
-      this.setData({
-        activeIndex:index
-      })
-    }
+		handleChangeTab(e) {
+			// console.log(e);
+			const { index } = e.currentTarget.dataset;
+			this.setData({
+				activeIndex: index
+			});
+		}
 	}
 });
