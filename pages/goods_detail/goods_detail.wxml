@@ -1,2 +1,34 @@
-<!--pages/goods_detail/goods_detail.wxml-->
-<text>pages/goods_detail/goods_detail.wxml</text>
+<swiper class="top-swiper"
+ indicator-dots autoplay interval="{{6000}}"
+ circular 
+ indicator-active-color="#0051ff">
+    <block wx:for="{{goodsDetail.pics}}" wx:key="pics_id">
+        <swiper-item class="pic-item">
+            <image class="pic-img" mode="aspectFit"
+            bindtap='previewImage' data-img="{{item.pics_big}}"
+            src="{{item.pics_big || 'http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg'}}" />
+        </swiper-item>
+    </block>
+</swiper>
+<view class="goods-msg">
+    <view class="price-favorite">
+        <view class="price">
+            ¥<text class="price-num">{{goodsDetail.goods_price}}</text>
+        </view>
+        <view class="share-favorite">
+            <icon class="iconfont icon-fenxiang1" />
+            <icon class="iconfont icon-shoucang" />
+        </view>
+    </view>
+    <view class="goods_name">
+        {{goodsDetail.goods_name}}
+    </view>
+    <view class="graphic-details">
+        <h5>图文详情</h5>
+        <view class="goods_introduce">
+            <rich-text
+            nodes="{{goodsDetail.goods_introduce}}">
+            </rich-text>
+        </view>
+    </view>
+</view>
