@@ -9,5 +9,5 @@
 </view>
 <view class="content-index" wx:for="{{tabs.length}}" wx:key="*this"
  wx:if="{{activeIndex===index}}">
- <slot>{{index}}</slot>
+ <slot wx:if="{{activeIndex===index}}"></slot>
 </view>

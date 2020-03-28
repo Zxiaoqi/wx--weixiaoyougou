@@ -23,54 +23,56 @@ Page({
 	},
 	// 生命周期函数--监听页面加载
 	onLoad() {
-		app
-			.axios({
-				url: "/categories"
-			})
-			.then(res => {
-				// console.log(res);
-				const { message, meta } = res;
-				cateData = message;
-				// console.log(cateData);
-
-				const categorylist = message.map(item => {
+		const cate = wx.getStorageSync('cate')
+		if (!cate) {
+			this.getCateList()
+		} else { 
+			// console.log(cate);
+			const { time, data } = cate
+			let saveTime = Date.now() - time
+			if (saveTime >= 300000) {
+				wx.removeStorageSync('cate')
+				this.getCateList()
+			} else { 
+				cateData = data;
+				const categorylist = data.map(item => {
 					return {
 						cat_id: item.cat_id,
 						cat_name: item.cat_name
 					};
 				});
 				const cateChild = cateData[0].children;
-				// console.log(cateChild);
-				if (meta.status === 200) {
-					this.setData({
-						categorylist,
-						cateChild
-					});
-				}
-			});
+				this.setData({
+					categorylist,
+					cateChild
+				});
+			}
+		}
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function() {},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function() {},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function() {},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function() {},
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function() {}
+	getCateList() { 
+		app.axios({
+			url: "/categories"
+		})
+		.then(res => {
+			// console.log(res);
+			const { message, meta } = res;
+			cateData = message;
+			// console.log(cateData);
+			const categorylist = message.map(item => {
+				return {
+					cat_id: item.cat_id,
+					cat_name: item.cat_name
+				};
+			});
+			const cateChild = cateData[0].children;
+			// console.log(cateChild);
+			if (meta.status === 200) {
+				this.setData({
+					categorylist,
+					cateChild
+				});
+			}
+			wx.setStorageSync('cate', {time:Date.now(),data:message})
+		});
+	}
 });

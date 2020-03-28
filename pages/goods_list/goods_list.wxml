@@ -2,4 +2,19 @@
 <view class="topsearch">
     <search></search>
 </view>
-<tab-view></tab-view>
+<tab-view>
+    <view class="shop-box" wx:for="{{goodData}}" wx:key="goods_id">
+        <view class="shop-left">
+            <image class="shop-img" mode="heightFix"
+            src="{{item.goods_small_logo || 'http://image4.suning.cn/uimg/b2c/newcatentries/0070078570-000000000126569749_1_400x400.jpg'}}"/>
+        </view>
+        <view class="shop-right">
+            <view class="shop-name" >
+                {{item.goods_name}}
+            </view>
+            <view class="shop-price">
+                ¥{{item.goods_price}}
+            </view>
+        </view>
+    </view>
+</tab-view>

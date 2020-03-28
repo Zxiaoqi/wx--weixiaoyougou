@@ -19,7 +19,7 @@
   </view>
   <view class="tabs">
       <navigator class="tab-bar" wx:for="{{catitemslist}}" wx:key="name"
-      url="/pages/categorys/categorys" open-type="switchTab">
+      url="/pages/category/category" open-type="switchTab">
         <image src="{{item.image_src}}" mode class="tab-icon"/>
       </navigator>
   </view>

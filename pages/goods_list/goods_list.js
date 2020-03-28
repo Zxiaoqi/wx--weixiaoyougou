@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    query: '',
-    cid:null,
-    pagenum: 2,
-    pagesize: 5,
+    query: 'TCL',
+    cid:'10',
+    pagenum: 1,
+    pagesize: 10,
     goodData:[]
   },
   getGoodsList() { 
@@ -21,11 +21,11 @@ Page({
         pagesize:this.data.pagesize
       }
     }).then(res => { 
-      console.log(res);
+      // console.log(res);
       const { message, meta } = res
       if (meta.status === 200) { 
         this.setData({
-          goodData:message
+          goodData:message.goods
         })
       }
     })
@@ -36,52 +36,35 @@ Page({
   onLoad: function (options) {
     // console.log(options);
     const { query, cid } = options
-    this.setData({
-        query,
-        cid
-		});
+    if (query && cid) { 
+      this.setData({
+          query,
+          cid
+      });
+    }
     this.getGoodsList()
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh () {
-    wx.onstopPullDownRefresh()
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh()
+    if (this.data.pagenum != 1) { 
+			this.setData({
+				pagenum: this.data.pagenum - 1
+			});
+		  this.getGoodsList();
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom() {
+    this.setData({
+			pagenum:this.data.pagenum+1
+		});
+    this.getGoodsList()
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

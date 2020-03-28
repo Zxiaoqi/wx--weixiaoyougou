@@ -6,7 +6,7 @@ Component({
 	properties: {
 		tabs: {
 			type: Array,
-			value: ["tab栏","tab2"]
+			value: ["综合","销量","价格"]
 		}
 	},
 	/**
