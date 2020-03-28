@@ -26,3 +26,6 @@
         </view>
     </view>
 </tab-view>
+<back-top  wx:if="{{showBack}}">
+    <icon class="iconfont icon-backtop"/>
+</back-top>

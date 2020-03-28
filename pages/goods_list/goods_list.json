@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "search": "/components/search/search",
-    "tab-view":"/components/tab-view/tab-view"
+    "tab-view":"/components/tab-view/tab-view",
+    "back-top": "/components/backtop/back-top"
   },
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "商品列表",

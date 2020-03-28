@@ -1,0 +1,14 @@
+.backtop {
+  position: fixed;
+  bottom: 10rpx;
+  right: 10rpx;
+  z-index: 999;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: rgba(168, 168, 168, 0.2);
+  text-align: center;
+}
+.backtop:hover {
+  filter: brightness(130%);
+}
