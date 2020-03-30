@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "tab-view":"/components/tab-view/tab-view"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "收藏"
 }

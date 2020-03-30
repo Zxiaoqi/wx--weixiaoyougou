@@ -17,7 +17,8 @@
         </view>
         <view class="share-favorite">
             <icon class="iconfont icon-fenxiang1" />
-            <icon class="iconfont icon-shoucang" />
+            <icon class="iconfont {{iconShoucang}}" style="color:{{color}}"
+            bindtap="changeCollect" data-goods="{{goodsDetail}}"/>
         </view>
     </view>
     <view class="goods_name">
