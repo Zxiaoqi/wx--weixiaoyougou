@@ -1,14 +1,20 @@
-<navigator class="shop-box"
- url="/pages/goods_detail/goods_detail?goods_id={{goods.goods_id}}"
- open-type="navigate">
+<view class="shop-box">
     <view class="shop-left">
-        <image class="shop-img" mode="heightFix" src="{{goods.goods_big_logo || '/assets/img201709251329110_info300X300.jpg'}}" />
+        <navigator class="url-img" url="/pages/goods_detail/goods_detail?goods_id={{goods.goods_id}}"
+        open-type="navigate">
+            <image class="shop-img" mode="heightFix" src="{{goods.goods_big_logo || '/assets/img201709251329110_info300X300.jpg'}}" />
+        </navigator>
     </view>
     <view class="shop-right">
-        <view class="shop-name">{{goods.goods_name}}</view>
+        <view class="shop-name">
+            <navigator url="/pages/goods_detail/goods_detail?goods_id={{goods.goods_id}}"
+            open-type="navigate">
+            {{goods.goods_name}}
+            </navigator>
+        </view>
         <view class="shop-bottom">
             <view class="shop-price">¥{{goods.goods_price}}</view>
             <slot></slot>
         </view>
     </view>
-</navigator>
+</view>

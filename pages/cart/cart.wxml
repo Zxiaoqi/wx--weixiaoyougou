@@ -7,7 +7,11 @@
             style="color:#5001f0" />
         </view>
         <goods-item goods="{{item}}">
-            <view class="counter">12</view>
+            <view class="counter">
+                <i class="iconfont icon-jian1" bindtap="lessNum" data-index="{{index}}"></i>
+                {{item.number}}
+                <i class="iconfont icon-jia" bindtap="addNum"  data-index="{{index}}"></i>
+            </view>
         </goods-item>
     </view>
 </block>

@@ -10,6 +10,12 @@
   text-align: center;
   line-height: 2;
 }
+.cart .counter {
+  width: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
 .not-shop {
   text-align: center;
   height: 100rpx;
