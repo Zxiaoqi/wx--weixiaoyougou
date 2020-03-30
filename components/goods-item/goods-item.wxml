@@ -1,0 +1,14 @@
+<navigator class="shop-box"
+ url="/pages/goods_detail/goods_detail?goods_id={{goods.goods_id}}"
+ open-type="navigate">
+    <view class="shop-left">
+        <image class="shop-img" mode="heightFix" src="{{goods.goods_big_logo || '/assets/img201709251329110_info300X300.jpg'}}" />
+    </view>
+    <view class="shop-right">
+        <view class="shop-name">{{goods.goods_name}}</view>
+        <view class="shop-bottom">
+            <view class="shop-price">¥{{goods.goods_price}}</view>
+            <slot></slot>
+        </view>
+    </view>
+</navigator>

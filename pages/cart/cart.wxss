@@ -1,1 +1,17 @@
-/* pages/cart/cart.wxss */
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 4px 0 #eee;
+  margin: 10rpx 0;
+}
+.cart .cart-icon {
+  width: 110rpx;
+  text-align: center;
+  line-height: 2;
+}
+.not-shop {
+  text-align: center;
+  height: 100rpx;
+  line-height: 1;
+}

@@ -1,4 +1,16 @@
 <!--pages/cart/cart.wxml-->
-<view class="cart">
-    <view class="radio"></view>
+<block wx:if="{{goods.length > 0}}">
+    <view class="cart" wx:for="{{goods}}" wx:key="goods_id">
+        <view class="cart-icon" bindtap="handleSelect"
+        data-isSelect="{{item.isSelect}}" data-index="{{index}}">
+            <icon class="iconfont {{item.isSelect ? 'icon-icon-xuanzhe-active':'icon-yuand'}}"
+            style="color:#5001f0" />
+        </view>
+        <goods-item goods="{{item}}">
+            <view class="counter">12</view>
+        </goods-item>
+    </view>
+</block>
+<view class="not-shop" wx:else>
+    还没有宝贝！
 </view>

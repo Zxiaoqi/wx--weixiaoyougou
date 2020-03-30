@@ -1,10 +1,12 @@
-// components/selectable-group.js
+// components/goods-item/goods-item.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    goods: {
+      type:Object
+    }
   },
 
   /**
