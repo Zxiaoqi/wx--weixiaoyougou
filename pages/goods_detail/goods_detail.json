@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "cart-tab":"/components/cart-tab/cart-tab"
+  },
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "商品详情"
 }

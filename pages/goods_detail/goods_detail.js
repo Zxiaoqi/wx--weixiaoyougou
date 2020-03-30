@@ -14,8 +14,14 @@ Page({
         goods_id:this.data.goods_id
       }
     }).then(res => { 
-      console.log(res);
+      // console.log(res);
       const { message, meta } = res
+      const { system } = wx.getSystemInfoSync()
+      if (system.toLowerCase().indexOf('ios') > -1) { 
+        message.goods_introduce =
+          message.goods_introduce.replace(/\?.+?webp/g,"");
+      }
+      // console.log(message);
       if (meta.status === 200) { 
         this.setData({
           goodsDetail:message
@@ -45,6 +51,37 @@ Page({
     wx.previewImage({
 			current: img,
 			urls: pics
+		});
+  },
+  //加入购物车
+  addCart(e) { 
+    // console.log(e);
+    const { goods } = e.currentTarget.dataset
+    let goodArr = []
+    goodArr.push({
+			goods_id: goods.goods_id,
+      goods_big_logo: goods.goods_big_logo,
+      goods_price: goods.goods_price
+		}); 
+    wx.setStorageSync('goods',goodArr)
+  },
+  //立即购买
+  toBuy(e) { 
+    // console.log(e);
+    const { goods } = e.currentTarget.dataset;
+    app.axios({
+			url: "/my/orders/create",
+			data: {
+				goods_id: goods.goods_id
+			}
+    }).then(res => { 
+      console.log(res);
+    })
+  },
+  //to购物车
+  tocart() { 
+    wx.switchTab({
+			url: "/pages/cart/cart"
 		});
   },
   //页面相关事件处理函数--监听用户下拉动作

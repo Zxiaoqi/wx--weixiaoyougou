@@ -23,12 +23,24 @@
     <view class="goods_name">
         {{goodsDetail.goods_name}}
     </view>
-    <view class="graphic-details">
-        <h5>图文详情</h5>
-        <view class="goods_introduce">
-            <rich-text
-            nodes="{{goodsDetail.goods_introduce}}">
-            </rich-text>
-        </view>
+</view>
+<view class="truncated"></view>
+<view class="graphic-details">
+    <h5>图文详情</h5>
+    <view class="goods_introduce">
+        <rich-text
+        nodes="{{goodsDetail.goods_introduce}}">
+        </rich-text>
     </view>
 </view>
+<cart-tab  class="cart-tab" bindaddCart="addCart" data-goods="{{goodsDetail}}"
+ bindtoBuy="toBuy">
+    <button open-type="contact" slot="contact-service" class="icon-tab">
+        <i class="iconfont icon-lianxikefu"></i>
+        联系客服
+    </button>
+    <view slot="cart" class="icon-tab" bindtap="tocart">
+        <i class="iconfont icon-gouwuche"></i>
+        购物车
+    </view>
+</cart-tab>

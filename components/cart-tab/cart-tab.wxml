@@ -1,0 +1,10 @@
+<view class="cart-tab">
+    <slot name="contact-service"></slot>
+    <slot name="cart"></slot>
+    <view class="add-cart">
+        <button class="cart-btn btn" bindtap="addCart">加入购物车</button>
+    </view>
+    <view class="buy">
+        <button class="buy-btn btn" bindtap="toBuy">立即购买</button>
+    </view>
+</view>

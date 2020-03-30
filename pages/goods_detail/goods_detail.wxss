@@ -35,16 +35,37 @@
   -webkit-line-clamp: 3;
   line-clamp: 3;
 }
-.goods-msg .graphic-details {
-  padding-top: 40rpx;
+.truncated {
+  height: 20rpx;
+  background-color: #eee;
+}
+.graphic-details {
+  padding: 40rpx 0 100rpx;
   text-align: center;
 }
-.goods-msg .graphic-details h5 {
+.graphic-details h5 {
   font-size: 36rpx;
   color: #444;
   font-weight: 600;
 }
-.goods-msg .graphic-details .goods_introduce {
+.graphic-details .goods_introduce {
   padding-top: 20rpx;
   margin-top: 20rpx;
+}
+.cart-tab .icon-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 110rpx;
+  font-size: 26rpx;
+  color: #444;
+  cursor: pointer;
+}
+.cart-tab button.icon-tab {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  background-color: #fff;
+  font-weight: normal;
 }
