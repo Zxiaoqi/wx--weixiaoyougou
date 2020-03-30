@@ -1,13 +1,32 @@
 // pages/cart/cart.js
 Page({
 	data: {
-		goods: []
+		goods: [],
+		selectAll: false,
+		totalPrice: 0,
+		totalNumber: 0
 	},
 
 	onShow() {
 		const goods = wx.getStorageSync("goods") || [];
 		this.setData({
 			goods
+		});
+		let arr,
+			price = 0,
+			num = 0,
+			flag;
+		arr = goods.filter(item => {
+			price += item.goods_price * item.number;
+			num += item.number;
+			return item.isSelect === true;
+		});
+		flag = arr.length === goods.length;
+		// console.log(this.data.selectAll);
+		this.setData({
+			selectAll: flag,
+			totalPrice: price,
+			totalNumber: num
 		});
 	},
 	handleSelect(e) {
@@ -22,19 +41,34 @@ Page({
 		wx.setStorageSync("goods", this.data.goods);
 		this.onShow();
 	},
-	addNum(e) { 
+	addNum(e) {
 		const { index } = e.currentTarget.dataset;
-		
-			this.data.goods[index].number++;
+		this.data.goods[index].number++;
 		wx.setStorageSync("goods", this.data.goods);
 		this.onShow();
 	},
-	lessNum(e) { 
+	lessNum(e) {
 		const { index } = e.currentTarget.dataset;
-		let num = this.data.goods[index].number
+		let num = this.data.goods[index].number;
 		if (num > 0) {
 			this.data.goods[index].number--;
 		}
+		wx.setStorageSync("goods", this.data.goods);
+		this.onShow();
+	},
+	handleSelectAll() { 
+		if (!this.data.selectAll) {
+			this.setData({
+				selectAll: true
+			});
+		} else { 
+			this.setData({
+				selectAll: false
+			});
+		}
+		this.data.goods.map(item => {
+			item.isSelect = this.data.selectAll;
+		});
 		wx.setStorageSync("goods", this.data.goods);
 		this.onShow();
 	}

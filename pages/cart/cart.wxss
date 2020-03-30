@@ -21,3 +21,51 @@
   height: 100rpx;
   line-height: 1;
 }
+.total {
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 83rpx;
+  padding: 10rpx 20rpx;
+}
+.total .select-all {
+  width: 150rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  vertical-align: middle;
+  padding-right: 20rpx;
+}
+.total .select-all .text {
+  color: #999;
+  font-size: 24rpx;
+}
+.total .total-price {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  font-size: 32rpx;
+}
+.total .total-price .price {
+  color: #0051ff;
+}
+.total .total-price .price::before {
+  content: '¥';
+  font-size: 26rpx;
+}
+.total .settlement {
+  margin: 0;
+  padding: 0;
+  width: 160rpx;
+  height: 52rpx;
+  background-color: #EA4350;
+  color: #fff;
+  font-size: 21rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 26rpx;
+}
