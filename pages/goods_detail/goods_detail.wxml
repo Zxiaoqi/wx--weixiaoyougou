@@ -6,7 +6,7 @@
         <swiper-item class="pic-item">
             <image class="pic-img" mode="aspectFit"
             bindtap='previewImage' data-img="{{item.pics_big}}"
-            src="{{item.pics_big || 'http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg'}}" />
+            src="{{item.pics_big || '/assets/img201709251329110_info300X300.jpg'}}" />
         </swiper-item>
     </block>
 </swiper>
