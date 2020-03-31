@@ -33,5 +33,6 @@
         总价：
         <view class="price">{{totalPrice}}</view>
     </view>
-    <button class="settlement" bindtap="toPay">去支付({{totalNumber}})</button>
+    <button class="settlement" disabled="{{!userAddress.detailAddress}}"
+    bindtap="toPay">去支付({{totalNumber}})</button>
 </view>
