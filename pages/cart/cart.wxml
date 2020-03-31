@@ -14,17 +14,25 @@
             </view>
         </goods-item>
     </view>
+    <view class="total">
+        <view class="select-all" bindtap="handleSelectAll">
+            <i class="iconfont {{selectAll ? 'icon-icon-xuanzhe-active':'icon-yuand'}}" style="color:#5001f0" />
+            <view class="text">全选</view>
+        </view>
+        <view class="total-price">
+            总价：
+            <view class="price">{{totalPrice}}</view>
+        </view>
+        <button class="settlement"
+        disabled="{{isdisbled}}"
+        bindtap="toPay">去结算({{totalNumber}})</button>
+    </view>
 </block>
 <view class="not-shop" wx:else>
     还没有宝贝！
+    <navigator url="/pages/index/index" open-type="switchTab"
+    class="toindex">
+        去首页看看 >>
+    </navigator>
 </view>
-<view class="total">
-    <view class="select-all" bindtap="handleSelectAll">
-        <i class="iconfont {{selectAll ? 'icon-icon-xuanzhe-active':'icon-yuand'}}" style="color:#5001f0"/>
-        <view class="text">全选</view>
-    </view>
-    <view class="total-price">
-        总价：<view class="price">{{totalPrice}}</view>
-    </view>
-    <button class="settlement">去结算({{totalNumber}})</button>
-</view>
+

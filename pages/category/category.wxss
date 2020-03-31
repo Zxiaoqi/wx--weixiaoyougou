@@ -40,19 +40,16 @@
   justify-content: center;
   padding: 18rpx 0;
   font-size: 37rpx;
-  position: relative;
 }
 .main .scroll-right .right-title::before {
   content: '/';
   color: #888;
-  position: absolute;
-  left: 40%;
+  padding-right: 10rpx;
 }
 .main .scroll-right .right-title::after {
   content: '/';
   color: #888;
-  position: absolute;
-  right: 40%;
+  padding-left: 10rpx;
 }
 .main .scroll-right .right-item {
   display: flex;

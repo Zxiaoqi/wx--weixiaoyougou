@@ -4,7 +4,8 @@ Page({
 		goods: [],
 		selectAll: false,
 		totalPrice: 0,
-		totalNumber: 0
+		totalNumber: 0,
+		isdisbled: true,
 	},
 
 	onShow() {
@@ -19,9 +20,19 @@ Page({
 		arr = goods.filter(item => {
 			price += item.goods_price * item.number;
 			num += item.number;
+			if (item.isSelect) {
+				this.setData({
+					isdisbled: false
+				});
+			} else { 
+				this.setData({
+					isdisbled: true
+				});
+			}
 			return item.isSelect === true;
 		});
 		flag = arr.length === goods.length;
+		if (arr.length == 0) flag = false;
 		// console.log(this.data.selectAll);
 		this.setData({
 			selectAll: flag,
@@ -50,18 +61,34 @@ Page({
 	lessNum(e) {
 		const { index } = e.currentTarget.dataset;
 		let num = this.data.goods[index].number;
-		if (num > 0) {
+		if (num > 1) {
 			this.data.goods[index].number--;
+		} else {
+			wx.showModal({
+				title: "提示",
+				content: "是否删除商品",
+				showCancel: true,
+				cancelText: "取消",
+				confirmText: "确定",
+				confirmColor: "#0051ff",
+				success: res => {
+					if (res.confirm) {
+						this.data.goods.splice(index, 1);
+						wx.setStorageSync("goods", this.data.goods);
+						this.onShow();
+					}
+				}
+			});
 		}
 		wx.setStorageSync("goods", this.data.goods);
 		this.onShow();
 	},
-	handleSelectAll() { 
+	handleSelectAll() {
 		if (!this.data.selectAll) {
 			this.setData({
 				selectAll: true
 			});
-		} else { 
+		} else {
 			this.setData({
 				selectAll: false
 			});
@@ -71,5 +98,14 @@ Page({
 		});
 		wx.setStorageSync("goods", this.data.goods);
 		this.onShow();
+	},
+	toPay() {
+		const index = this.data.goods.findIndex(item => (item.isSelect === true ))
+		// console.log(index);
+		if (index !== -1) { 
+			wx.navigateTo({
+				url: "/pages/pay/pay"
+			});
+		}
 	}
 });

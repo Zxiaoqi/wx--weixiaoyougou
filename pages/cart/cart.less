@@ -5,6 +5,8 @@
     align-items: center;
     box-shadow: 0 3px 4px 0 #eee;
     margin: 10rpx 0;
+    padding: 0 20rpx;
+    box-sizing: border-box;
     .cart-icon{
         width: 110rpx;
         text-align: center;
@@ -18,19 +20,27 @@
     }
 }
 .not-shop{
+    width: 100vw;
+    height: 200rpx;
     text-align: center;
-    height: 100rpx;
-    line-height: 1;
+    padding: 400rpx 0;
+    line-height: 3;
+    .toindex{
+        font-size: small;
+        color: #0051ff;
+    }
 }
 .total{
     position: fixed;
     bottom: 0;
-    width: 95%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 83rpx;
     padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    border-top: 1rpx solid #eee;
     .select-all{
         width: 150rpx;
         display: flex;

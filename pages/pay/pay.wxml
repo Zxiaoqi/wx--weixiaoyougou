@@ -1,2 +1,37 @@
 <!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<view class="address" bindtap="getUserSetting">
+    <block wx:if="{{userAddress.detailAddress}}">
+        <view class="address-detail">
+            {{userAddress.detailAddress}}
+        </view>
+        <view class="address-user">
+            <text space="emsp">{{userAddress.userName}}  {{userAddress.telNumber}}</text>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="address-btn">
+            选择地址
+        </view>
+    </block>
+</view>
+<view class="choose">
+    <view class="choose-title">
+        已选商品
+    </view>
+    <view class="choose-list">
+        <view class="choose-list-item" wx:for="{{goods}}" wx:key="goods_id">
+            <goods-item goods="{{item}}">
+                <view class="choose-list-price">
+                    x{{item.number}}
+                </view>
+            </goods-item>
+        </view>
+    </view>
+</view>
+<view class="total">
+    <view class="total-price">
+        总价：
+        <view class="price">{{totalPrice}}</view>
+    </view>
+    <button class="settlement" bindtap="toPay">去支付({{totalNumber}})</button>
+</view>
