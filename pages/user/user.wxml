@@ -1,2 +1,25 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="avatar">
+    <image class="avatar-blur" src="/assets/78428963_p2_master1200.jpg"
+    mode="aspectFill">
+    </image>
+    <view class="avatar-user">
+        <image class="avatar-user-img" src="/assets/78428963_p2_master1200.jpg" 
+        mode="aspectFill"/>
+        <view class="avatar-user-name">张三</view>
+    </view>
+</view>
+<view class="collect navigate">
+    <block wx:for="{{4}}" wx::key="*this">
+        <navigate-item text="{{item}}" title="收藏"
+        data-index="{{index}}" bindtap="onTap" />
+    </block>
+</view>
+
+<view class="navigate">
+    <block wx:for="{{navigateTitle}}" wx:key="title">
+        <navigate-item icon="{{item.icon}}" title="{{item.title}}"
+        data-index="{{index}}" bindtap="onTap"/>
+    </block>
+</view>
+

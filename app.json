@@ -1,15 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/myindex/myindex",
     "pages/category/category",
+    "pages/cart/cart",
+    "pages/user/user",
     "pages/goods_list/goods_list",
     "pages/goods_detail/goods_detail",
-    "pages/cart/cart",
     "pages/collect/collect",
     "pages/order/order",
     "pages/search/search",
-    "pages/user/user",
     "pages/feedback/feedback",
     "pages/login/login",
     "pages/auth/auth",
@@ -39,7 +38,7 @@
       "selectedIconPath":"icons/cart.png",
       "iconPath":"icons/cart-o.png"
   },{
-      "pagePath":"pages/myindex/myindex",
+      "pagePath":"pages/user/user",
       "text":"我的",
       "selectedIconPath":"icons/wode.png",
       "iconPath":"icons/wode-o.png"

@@ -1,0 +1,4 @@
+<view class="navigate-item">
+    <i class="navigate-item-desc {{icon ? 'iconfont '+icon : icon}}">{{text}}</i>
+    <view class="navigate-item-title">{{title}}</view>
+</view>

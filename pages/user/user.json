@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "navigate-item": "/components/navigate-item//navigate-item"
+  },
+  "navigationBarTextStyle":"white",
+  "navigationBarTitleText":"我的"
 }
