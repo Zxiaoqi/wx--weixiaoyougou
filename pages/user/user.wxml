@@ -12,8 +12,10 @@
 <!-- 收藏 -->
 <view class="collect navigate">
     <block wx:for="{{4}}" wx:key="*this">
-        <navigate-item text="{{item}}" title="收藏"
-        data-index="{{index}}" bindtap="onTap" />
+        <navigator url="/pages/collect/collect?index={{index}}">
+            <navigate-item text="{{item}}" title="收藏"
+            data-index="{{index}}" bindtap="onTap" />
+        </navigator>
     </block>
 </view>
 <!-- 订单 -->

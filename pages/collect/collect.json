@@ -1,7 +1,8 @@
 {
   "usingComponents": {
-    "tab-view":"/components/tab-view/tab-view"
+    "tab-view":"/components/tab-view/tab-view",
+    "goods-item": "/components/goods-item/goods-item"
   },
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "收藏"
+  "navigationBarTitleText": "我的收藏"
 }

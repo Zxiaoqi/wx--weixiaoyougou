@@ -39,13 +39,24 @@ Page({
 	},
 	onLoad(options) {
 		const { goods_id } = options;
-		// console.log(goods_id);
+		console.log(goods_id);
 		if (goods_id) {
 			this.setData({
 				goods_id
 			});
 		}
 		this.getGoodsDetail();
+	},
+	onShow() { 
+		let collects = wx.getStorageSync('collects') || []
+		let index = collects.findIndex(item => item.goods_id == this.data.goods_id)
+		if (index > -1) { 
+			this.setData({
+				isCollect: true,
+				iconShoucang: "icon-shoucang1",
+				color: "red"
+			});
+		}
 	},
 	//图片预览
 	previewImage(e) {
@@ -65,10 +76,10 @@ Page({
 	addCart() {
 		// console.log(e);
 		const { goods_id, goods_name, goods_big_logo, goods_price } = this.data.goodsDetail;
-    const goods = wx.getStorageSync('goods') || [];
-    const index = goods.findIndex(v => v.goods_id === goods_id) 
-    if (index === -1) {
-      this.goodsObj = {
+		const goods = wx.getStorageSync('goods') || [];
+		const index = goods.findIndex(v => v.goods_id === goods_id) 
+		if (index === -1) {
+			this.goodsObj = {
 				goods_id,
 				goods_name,
 				goods_big_logo,
@@ -76,14 +87,14 @@ Page({
 				isSelect: true,
 				number: 1
 			};
-      goods.unshift(this.goodsObj);
-      wx.showToast({
-        title: "已加入购物车",
-        mask: true
-      })
-    } else { 
-      goods[index].number++;
-      wx.showToast({
+			goods.unshift(this.goodsObj);
+			wx.showToast({
+				title: "已加入购物车",
+				mask: true
+			})
+		} else { 
+			goods[index].number++;
+			wx.showToast({
 				title: "商品数量增加",
 				mask: true
 			});
@@ -113,37 +124,34 @@ Page({
 	},
 	//收藏改变
 	changeCollect(e) {
-    let { goods } = e.currentTarget.dataset;
-    let goodArr = [];
+		let { goods } = e.currentTarget.dataset;
+		let collects = wx.getStorageSync("collects") || [];
 		if (!this.data.isCollect) {
 			this.setData({
 				isCollect: true,
-        iconShoucang: "icon-shoucang1",
-        color:"red"
-      });
-			goodArr.unshift({
+				iconShoucang: "icon-shoucang1",
+				color:"red"
+			});
+			collects.unshift({
 				goods_id: goods.goods_id,
 				goods_name: goods.goods_name,
 				goods_big_logo: goods.goods_big_logo,
 				goods_price: goods.goods_price
 			});
-			wx.setStorageSync("collects", goodArr);
+			wx.setStorageSync("collects", collects);
 		} else {
 			this.setData({
 				isCollect: false,
-        iconShoucang: "icon-shoucang2",
-        color:"#000"
-      });
-      const collects = wx.getStorageSync('collects')
-      goodArr = collects.filter(val => { 
-        if (goods.goods_id != val.goods_id) { 
-          return val
-        }
-      })
-      // console.log(goodArr);
-      wx.setStorageSync("collects", goodArr);
+				iconShoucang: "icon-shoucang2",
+				color:"#000"
+			});
+			collects = collects.filter(val => {
+				if (goods.goods_id != val.goods_id) {
+					return val;
+				}
+			});
+			// console.log(goodArr);
+			wx.setStorageSync("collects", collects);
 		}
-	},
-	//用户点击右上角分享
-	onShareAppMessage: function() {}
+	}
 });

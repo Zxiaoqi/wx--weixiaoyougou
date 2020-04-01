@@ -1,1 +1,9 @@
-/* pages/collect/collect.wxss */
+page {
+  background-color: #f7f7f7;
+}
+.collect-item {
+  margin: 10rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  padding: 0 10rpx;
+}

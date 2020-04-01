@@ -1,2 +1,8 @@
-<!--pages/collect/collect.wxml-->
-<tab-view></tab-view>
+
+<tab-view tabs="{{tabs}}" bindonChange="changeIndex">
+    <view class="collect-item" wx:for="{{collects}}" wx:key="goods_id">
+        <goods-item goods="{{item}}"/>
+    </view>
+</tab-view>
+
+

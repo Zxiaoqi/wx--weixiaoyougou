@@ -18,32 +18,35 @@ Page({
 	},
 	getGoodsList() {
 		app
-			.axios({
-				url: "/goods/search",
-				data: this.data.params
-			})
-			.then(res => {
-				// console.log(res);
-				const { message, meta } = res;
-				total = message.total;
-				if (meta.status === 200) {
-					this.setData({
-						goodData: [...this.data.goodData, ...message.goods]
-					});
-					wx.stopPullDownRefresh();
-				}
-			});
-	}, //页面初始化 options为页面跳转所带来的参数
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
+		.axios({
+			url: "/goods/search",
+			data: this.data.params
+		})
+		.then(res => {
+			// console.log(res);
+			const { message, meta } = res;
+			total = message.total;
+			if (meta.status === 200) {
+				this.setData({
+					goodData: [...this.data.goodData, ...message.goods]
+				});
+				wx.stopPullDownRefresh();
+			}
+		});
+	},
+	//页面初始化 options为页面跳转所带来的参数
+	onLoad(options) {
 		// console.log(options);
 		const { query, cid } = options;
 		if (query && cid) {
-			this.setData({
+			let	params = {
 				query,
-				cid
+				cid,
+				pagenum: 1,
+				pagesize: 10
+			}
+			this.setData({
+				params
 			});
 		}
 		this.getGoodsList();

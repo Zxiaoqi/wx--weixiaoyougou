@@ -3,7 +3,7 @@
     <search></search>
 </view>
 <tab-view tabs="{{tabs}}">
-    <view class="shop-box"  tabIndex="{{0}}" wx:for="{{goodData}}" wx:key="item">
+    <view class="shop-box" wx:for="{{goodData}}" wx:key="item">
         <view class="shop-left">
             <navigator class="url-img"
             url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
