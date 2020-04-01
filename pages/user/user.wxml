@@ -9,17 +9,22 @@
         <view class="avatar-user-name">张三</view>
     </view>
 </view>
+<!-- 收藏 -->
 <view class="collect navigate">
-    <block wx:for="{{4}}" wx::key="*this">
+    <block wx:for="{{4}}" wx:key="*this">
         <navigate-item text="{{item}}" title="收藏"
         data-index="{{index}}" bindtap="onTap" />
     </block>
 </view>
-
+<!-- 订单 -->
 <view class="navigate">
     <block wx:for="{{navigateTitle}}" wx:key="title">
         <navigate-item icon="{{item.icon}}" title="{{item.title}}"
         data-index="{{index}}" bindtap="onTap"/>
     </block>
 </view>
-
+<view class="others">
+    <cell icon="icon-lianxikefu" title="联系客服" content="400-618-4000"></cell>
+    <cell icon="icon-yijian1" title="意见反馈"></cell>
+    <cell icon="icon-banben" title="当前版本" content="v1.0.0"></cell>
+</view>

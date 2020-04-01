@@ -1,0 +1,10 @@
+<view class="cell">
+    <view class="cell-left">
+        <i wx:if="{{icon}}" class="cell-left-icon {{icon ?'iconfont '+icon : icon}} " />
+        <view class="cell-left-title">{{title}}</view>
+    </view>
+    <view class="cell-right">
+        <view class="cell-right-content">{{content}}</view>
+        <i wx:if="{{arrow}}" class="cell-right-arrow iconfont icon-arrow-right" />
+    </view>
+</view>

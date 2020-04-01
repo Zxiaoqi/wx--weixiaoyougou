@@ -42,9 +42,14 @@ page {
   border-radius: 10rpx;
   margin: 20rpx;
   padding: 20rpx 0;
-  transform: translate(0, -30%);
+  transform: translate(0, -15%);
 }
 .collect {
-  margin-bottom: 30rpx;
   transform: translate(0, -30%);
+}
+.others {
+  background: #fff;
+  padding: 0 20rpx;
+  margin: 20rpx;
+  border-radius: 10rpx;
 }

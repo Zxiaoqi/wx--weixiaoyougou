@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "navigate-item": "/components/navigate-item//navigate-item"
+    "navigate-item": "/components/navigate-item//navigate-item",
+    "cell": "/components/cell/cell"
   },
   "navigationBarTextStyle":"white",
   "navigationBarTitleText":"我的"
