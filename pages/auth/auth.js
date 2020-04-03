@@ -1,66 +1,39 @@
 // pages/auth/auth.js
+const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getUserInfo(e) {
+    // console.log(e);
+    const { encryptedData,rawData, userInfo, iv, signature } = e.detail;
+    wx.login().then(res => {
+      // console.log(res);
+      const { code } = res
+      app.axios({
+        url: "/users/wxlogin",
+        method:'POST',
+				data: {
+					encryptedData,
+					rawData,
+					iv,
+					signature,
+					code
+				}
+      }).then(res => { 
+        // console.log(res);
+        const { token } = res.message
+        if (token) {
+          wx.setStorageSync('token', token)
+          wx.setStorageSync("userInfo", userInfo);
+          this.triggerEvent('getUserInfo',userInfo)
+          // wx.navigateBack()
+        } else { 
+          wx.showToast({
+            title:'授权失败'
+          })
+        }
+      })
+    });
   }
 })

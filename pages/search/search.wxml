@@ -1,2 +1,15 @@
 <!--pages/search/search.wxml-->
-
+<view class="search">
+    <view class="search-input">
+        <i class="search-input-icon iconfont icon-sousuo"/>
+        <input class="search-input-text" confirm-type="search" placeholder="输入商品名"
+        bindconfirm="onSearch"  bindinput="onChange"/>
+    </view>
+    <view class="search-button" bindtap="onSearch">搜索</view>
+</view>
+<view class="search-content">
+    <navigator wx:for="{{searchData}}" wx:key="goods_id" class="content-url"
+    url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+        <view class="content-p">{{item.goods_name}}</view>
+    </navigator>
+</view>

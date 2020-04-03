@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "tab-view":"/components/tab-view/tab-view"
+  },
+  "navigationBarTitleText":"订单"
 }

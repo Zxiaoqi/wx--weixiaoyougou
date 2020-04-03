@@ -10,7 +10,7 @@
   height: 88rpx;
   padding: 0 20rpx;
   color: #666;
-  font-size: 33rpx;
+  font-size: 30rpx;
 }
 .tab .active {
   color: #0051ff;

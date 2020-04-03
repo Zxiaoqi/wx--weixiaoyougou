@@ -4,10 +4,13 @@ Component({
 		tabs: {
 			type: Array,
 			value: ["标签1", "标签2"]
+		},
+		activeIndex: {
+			type: Number,
+			value:0
 		}
 	},
 	data: {
-		activeIndex: 0
 	},
 	methods: {
 		handleChangeTab(e) {
@@ -16,6 +19,8 @@ Component({
 			this.setData({
 				activeIndex: index
 			});
+			// console.log(this.data.activeIndex);
+			// console.log(this.properties);
 			this.triggerEvent("onChange", e.currentTarget.dataset);
 		}
 	}

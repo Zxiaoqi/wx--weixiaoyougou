@@ -1,1 +1,28 @@
-/* pages/order/order.wxss */
+.order {
+  background-color: #f7f7f7;
+  padding: 10rpx;
+}
+.order-item {
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 5rpx;
+  margin: 10rpx 0;
+}
+.order-item-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  line-height: 45rpx;
+}
+.order-item-cell .order-price {
+  color: #0051ff;
+}
+.order-item-cell .order-price:before {
+  content: '¥';
+  font-size: 23rpx;
+  letter-spacing: -2pt;
+}
+.order-title {
+  color: #777;
+}

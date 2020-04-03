@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "navigate-item": "/components/navigate-item//navigate-item",
-    "cell": "/components/cell/cell"
+    "cell": "/components/cell/cell",
+    "getuserinfo": "/pages/auth/auth"
   },
   "navigationBarTextStyle":"white",
   "navigationBarTitleText":"我的"

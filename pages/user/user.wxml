@@ -1,19 +1,25 @@
 <!--pages/user/user.wxml-->
 <view class="avatar">
-    <image class="avatar-blur" src="/assets/78428963_p2_master1200.jpg"
+    <image class="avatar-blur"
+    src="{{userInfo.avatarUrl ? userInfo.avatarUrl:'/assets/78428963_p2_master1200.jpg'}}"
     mode="aspectFill">
     </image>
     <view class="avatar-user">
-        <image class="avatar-user-img" src="/assets/78428963_p2_master1200.jpg" 
+        <image class="avatar-user-img"
+        src="{{userInfo.avatarUrl ? userInfo.avatarUrl:'/assets/78428963_p2_master1200.jpg'}}" 
         mode="aspectFill"/>
-        <view class="avatar-user-name">张三</view>
+        <view class="avatar-user-name">
+            {{userInfo.nickName ? userInfo.nickName:'点击登录'}}
+        </view>
     </view>
+    <getuserinfo class="avatar-user-btn" wx:if="{{!userInfo.nickName}}"
+    bindgetUserInfo="getUserInfo"></getuserinfo>
 </view>
 <!-- 收藏 -->
 <view class="collect navigate">
-    <block wx:for="{{4}}" wx:key="*this">
-        <navigator url="/pages/collect/collect?index={{index}}">
-            <navigate-item text="{{item}}" title="收藏"
+    <block wx:for="{{collectTitle}}" wx:key="*this">
+        <navigator url="/pages/collect/collect?index={{index}}" open-type="navigate">
+            <navigate-item text="{{collectLength}}" title="{{item}}"
             data-index="{{index}}" bindtap="onTap" />
         </navigator>
     </block>
@@ -21,12 +27,20 @@
 <!-- 订单 -->
 <view class="navigate">
     <block wx:for="{{navigateTitle}}" wx:key="title">
-        <navigate-item icon="{{item.icon}}" title="{{item.title}}"
-        data-index="{{index}}" bindtap="onTap"/>
+        <navigator url="/pages/order/order?index={{item.index}}" open-type="navigate">
+            <navigate-item icon="{{item.icon}}" title="{{item.title}}"
+            data-index="{{index}}" bindtap="onTap"/>
+        </navigator>
     </block>
 </view>
 <view class="others">
-    <cell icon="icon-lianxikefu" title="联系客服" content="400-618-4000"></cell>
-    <cell icon="icon-yijian1" title="意见反馈"></cell>
+    <button open-type="contact" class="btn">
+        <cell icon="icon-lianxikefu" title="联系客服" content="400-618-4000"></cell>
+    </button>
+    <button open-type="feedback" class="btn">
+        <cell icon="icon-yijian1" title="意见反馈"></cell>
+    </button>
     <cell icon="icon-banben" title="当前版本" content="v1.0.0"></cell>
 </view>
+<!-- <button open-type="feedback">意见反馈</button> -->
+

@@ -39,7 +39,7 @@ Page({
 	},
 	onLoad(options) {
 		const { goods_id } = options;
-		console.log(goods_id);
+		// console.log(goods_id);
 		if (goods_id) {
 			this.setData({
 				goods_id
@@ -72,21 +72,32 @@ Page({
 			urls: pics
 		});
 	},
+	processData() { 
+		const {
+			goods_id,
+			goods_name,
+			goods_big_logo,
+			goods_price
+		} = this.data.goodsDetail;
+		const goods = wx.getStorageSync("goods") || [];
+		const index = goods.findIndex(v => v.goods_id === goods_id);
+		this.goodsObj = {
+			goods_id,
+			goods_name,
+			goods_big_logo,
+			goods_price,
+			isSelect: true,
+			number: 1
+		};
+		return {
+			goods,
+			index
+		}
+	},
 	//加入购物车
 	addCart() {
-		// console.log(e);
-		const { goods_id, goods_name, goods_big_logo, goods_price } = this.data.goodsDetail;
-		const goods = wx.getStorageSync('goods') || [];
-		const index = goods.findIndex(v => v.goods_id === goods_id) 
+		const { goods,index} = this.processData()
 		if (index === -1) {
-			this.goodsObj = {
-				goods_id,
-				goods_name,
-				goods_big_logo,
-				goods_price,
-				isSelect: true,
-				number: 1
-			};
 			goods.unshift(this.goodsObj);
 			wx.showToast({
 				title: "已加入购物车",
@@ -98,23 +109,19 @@ Page({
 				title: "商品数量增加",
 				mask: true
 			});
-    }
-    wx.setStorageSync("goods", goods);
+    	}
+    	wx.setStorageSync("goods", goods);
 	},
 	//立即购买
-	toBuy(e) {
-		// console.log(e);
-		const { goods } = e.currentTarget.dataset;
-		app
-			.axios({
-				url: "/my/orders/create",
-				data: {
-					goods_id: goods.goods_id
-				}
-			})
-			.then(res => {
-				console.log(res);
-			});
+	toBuy() {
+		const { goods, index } = this.processData();
+		if (index === -1) { 
+			goods.unshift(this.goodsObj);
+		}
+		wx.setStorageSync("goods", goods);
+		wx.switchTab({
+			url: "/pages/cart/cart"
+		});
 	},
 	//to购物车
 	tocart() {
